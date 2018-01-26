@@ -1,0 +1,19 @@
+﻿@using WebProject.Models;
+@model IEnumerable<Supplier>
+
+@{ WebDienThoaiEntities db1 = new WebDienThoaiEntities(); }
+ 
+
+<ul class="nav nav-pills nav-stacked">
+    @foreach (var item in Model)
+    {
+        <li>
+             <a href="#"> 
+                <span class="pull-right">
+                    (@db1.Products.Where(p => p.SupplierId == item.SupplierId).Count())
+                </span>@item.SupplierName</a>
+        </li>
+    }
+</ul>
+
+

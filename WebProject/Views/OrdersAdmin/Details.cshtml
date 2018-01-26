@@ -1,0 +1,111 @@
+﻿@using WebProject.Models;
+@model WebProject.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Chi tiết đơn hàng</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+           @switch (Model.Status)
+           {
+               case 0:
+                <span>Đơn hàng mới</span>
+                   break;
+               case 1:
+                <span>Đã xem</span>
+                   break;
+               case 2:
+                <span>Đã xử lý</span>
+                   break;
+           }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerName)
+        </dd>
+
+    </dl>
+</div>
+@{ List<OrderDetail> listOrderDetails = ViewBag.OrderDetails;
+    decimal? GrandTotal = 0;}
+<div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá tiền</th>
+            <th>Thành tiền</th>
+        </tr>
+        @foreach (var item in listOrderDetails)
+        {
+            var tongtien = item.Quantity * item.Price;
+            GrandTotal += tongtien;
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.Product.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price</td>
+                <td><span>@tongtien</span></td>
+            </tr>
+        }
+        <tr>
+            
+            <td colspan="4" class="text-right">
+              <span>Tổng tiền: </span>
+            </td>
+            <td>@GrandTotal</td>
+        </tr>
+        <tr>
+            <td colspan="5" class="text-center">
+                @using (Html.BeginForm("XuLyDonHang","OrdersAdmin",new { id=Model.OrderId})) {
+                    <input type="submit" class="btn btn-default" value="Xử lý đơn hàng" />
+                }
+            </td>
+        </tr>
+    </table>
+
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "Index")
+</p>

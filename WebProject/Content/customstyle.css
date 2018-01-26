@@ -1,0 +1,139 @@
+﻿.mainmenu ul li a {
+    padding: 15px 16px 0;
+}
+.offcanvas-container {
+    min-height: 100%;
+}
+.fs12{
+    font-size: 13px;
+}
+.mm-menu.mm-right {
+    left: auto;
+    right: 0;
+}
+
+.mm-menu .mm-offcanvas {
+    display: none;
+    position: fixed;
+}
+
+.lstMn {
+    display: none;
+}
+
+.mm-menu {
+    width: 80%;
+    min-width: 140px;
+    max-width: 440px;
+    background: #f3f3f3;
+    color: #000000;
+    overflow: hidden;
+    padding: 0;
+}
+
+    .mm-menu > .mm-panel .mm-hasnavbar {
+        padding-top: 40px;
+    }
+
+    .mm-menu > .mm-panel {
+        background: inherit;
+        -webkit-overflow-scrolling: touch;
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: auto;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+
+.mm-panel.mm-hasnavbar .mm-navbar {
+    display: block;
+}
+
+.mm-menu .mm-navbar {
+    border-color: rgba(0, 0, 0, 0.7);
+}
+
+.mm-navbar {
+    border-bottom: 1px solid transparent;
+    text-align: center;
+    line-height: 20px;
+    height: 40px;
+    padding: 0 40px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.mm-listview > li > a, .mm-listview > li > span, .mm-menu .mm-navbar > *, .mm-menu .mm-navbar a {
+    color: #fff;
+}
+    .mm-navbar .mm-title {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+.mm-menu> .mm-panel> .mm-listview .mm-last {
+    padding-bottom: 20px;
+}
+.mm-menu > .mm-panel > .mm-listview.mm-first {
+    margin-top: -20px;
+}
+.mm-menu > .mm-panel > .mm-listview {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.mm-listview {
+    font: inherit;
+    font-size: 14px;
+    list-style: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+    .mm-listview > li {
+        position: relative;
+        list-style: none;
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+        .mm-listview > li > a {
+            color: #fff;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            color: inherit;
+            line-height: 20px;
+            display: block;
+            padding: 10px 10px 10px 20px;
+            margin: 0;
+            text-decoration: none;
+        }
+.toy-area {
+    padding: 277px 0 0;
+    margin: 50px 0px 36px;
+}
+.bg-1 {
+    background: url(../Images/ico/bg.png) no-repeat;
+}
+text-center {
+    text-align:center;
+}
+.hero-area .content-block {
+    padding-bottom: 30px;
+    color: #f95669;
+    font-size: 24px;
+}
+
+    .hero-area .content-block h1 {
+        font-size: 50px;
+    }
+
+.hero-area .advance-search {
+    width: 1110px;
+    background-color: #f95669;
+    padding: 28px 18px 28px 18px;
+    border-radius: 3px;
+    margin-bottom: -50px;
+}

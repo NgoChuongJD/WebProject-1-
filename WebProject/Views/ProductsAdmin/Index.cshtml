@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    //Layout = null;
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.dataTables.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.getJSON("GetAllProducts", function (data) {
+            var tr;
+            for (var i = 0; i < data.length; i++) {
+                tr = $('<tr/>');
+                tr.append("<td>" + data[i].ProductName + "</td>");
+                tr.append("<td><img src='" + data[i].ProductImage + "' width='150'/></td>");
+                tr.append("<td>" + data[i].Price + "</td>");
+                tr.append("<td>" + data[i].Quantity + "</td>");
+               
+                tr.append("<td><a href='Edit/" +
+                    data[i].ProductId + "'>Edit</a> | <a href='Details/" +
+                    data[i].ProductId + "'>Chi tiết</a> |  <a href='Delete/" +
+                    data[i].ProductId + "'>Delete</a></td>");
+                $('table').append(tr);
+            }
+            $('#ProductInfor').DataTable();
+        });
+    });
+</script>
+<h2>Danh sách sản phẩm</h2>
+<hr>
+<div class="form-horizontal">
+    @Html.ActionLink("Create New", "Create")
+    <table id="ProductInfor" class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Ảnh sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        
+    </table>
+</div>
